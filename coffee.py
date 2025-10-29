@@ -1,5 +1,5 @@
 # Business Question: Which products and times of day generate the most profit?
-import pandas as pd
+import pandas as pd``
 
 df = pd.read_csv('coffee.csv')
 # df.info()
@@ -50,8 +50,12 @@ st.title("Sample Coffee Shop Sales Dashboard")
 st.info("This dashboard is an example to show how coffee shops (and other businesses) can create visuals from their data, to make informed decisions based on their data, and allowing them to improve efficiency and profit.")
 
 #KPI cards:total daily revenue, average sale, number of transactions
-st.metric("Total Revenue", f"฿{df['money'].sum():,.0f}")
-st.metric("Average Sale", f"฿{df['money'].mean():.0f}")
+col1, col2 = st.columns(2)
+with col1:
+    st.metric("Total Revenue", f"฿{df['money'].sum():,.0f}")
+
+with col2:
+    st.metric("Average Sale", f"฿{df['money'].mean():.0f}")
 
 #Show a sample of the data
 st.subheader("Data Preview")
