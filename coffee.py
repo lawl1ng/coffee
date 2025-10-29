@@ -47,7 +47,7 @@ import plotly.express as px
 
 st.title("Sample Coffee Shop Sales Dashboard")
 
-st.info("This dashboard allows for businesses to make informed decisions based on their own data, allowing them to improve efficiency and ultimately increase profit.")
+st.info("This dashboard is an example to show how coffee shops (and other businesses) can create visuals from their data, to make informed decisions based on their data, and allowing them to improve efficiency and profit.")
 
 #KPI cards:total daily revenue, average sale, number of transactions
 st.metric("Total Revenue", f"฿{df['money'].sum():,.0f}")
@@ -55,7 +55,7 @@ st.metric("Average Sale", f"฿{df['money'].mean():.0f}")
 
 #Show a sample of the data
 st.subheader("Data Preview")
-st.dataframe(df.head(100))
+st.dataframe(df.head(10))
 st.info("This shows a sample of our data.")
 
 #Bar Chart: revenue by product (coffee_name)
@@ -102,7 +102,7 @@ fig_date = px.line(
 
 st.plotly_chart(fig_date)
 st.success("On average, more money is spent in from 4pm onwards.")
-st.warning("Sales are lower in the morning; consider promotions.")
+st.warning("Sales are lower in the morning and early afternoon; consider promotions.")
 
 #Line chart: total revenue by Day
 st.subheader("Average Revenue by Day")
@@ -122,7 +122,7 @@ fig_date = px.line(
     labels={"money":"Average Revenue"})
 st.plotly_chart(fig_date)
 st.success("Peak sales occur on Monday and Tuesday - ideal for promoting combo deals.")
-st.warning("Sales are lower on weekends; consider promotions.")
+st.warning("Sales are lower on weekends; promotions can help increase profit.")
 
 #Line chart: Sales by Month
 st.subheader("Monthly Sales")
@@ -136,12 +136,12 @@ fig_month = px.line(
 st.plotly_chart(fig_month)
 
 st.success("Peak sales occur in March and October.")
-st.warning("Sales are lower in January and April; consider promotions.")
+st.warning("Sales are lower in January and April; promotions during these months can help increase profit.")
 
 #Insights text box
 st.subheader("Key Insights")
 st.success("Peak sales occur in the evenings, on Mondays and Tuesdays, and in March and October. These are the best times to consider upselling and/or cross-selling e.g. premium versions or combo versions.")
-st.warning("Sales are lower in the morning, on weekends, and January and April. Consider running promotions e.g. \"student\" days with small discounts, launch seasonal menu items, or early-bird/night-owl offers.")
+st.warning("Sales are lower in the morning, on weekends, and in January and April. Consider running promotions e.g. \"student\" days with small discounts, launching seasonal menu items, or offering \"early-bird\" promotions.")
 
 st.markdown(
     """
